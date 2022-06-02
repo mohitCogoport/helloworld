@@ -1,0 +1,50 @@
+{
+  "name": "helloworld",
+  "version": "1.0.0",
+  "description": "hello world roll up",
+  "main": "lib/prod.js",
+  "scripts": {
+    "prepublishOnly": "npm run release",
+    "release": "npm run build:dev && npm run build:prod",
+    "build:prod": "NODE_ENV=production rollup -c",
+    "build:dev": "NODE_ENV=development rollup -c",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react-grid-layout": "^1.3.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.2",
+    "@babel/preset-env": "^7.18.2",
+    "@babel/preset-react": "^7.17.12",
+    "@rollup/plugin-babel": "^5.3.1",
+    "@rollup/plugin-json": "^4.1.0",
+    "@svgr/cli": "^6.2.1",
+    "@svgr/rollup": "^5.5.0",
+    "axios-hooks": "^3.1.0",
+    "babel-loader": "^8.2.5",
+    "postcss": "^8.4.14",
+    "qs": "^6.10.3",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "rollup": "^2.75.5",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-replace": "^2.2.0",
+    "rollup-plugin-svg": "^2.0.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "styled-jsx": "^5.0.2"
+  },
+  "peerDependencies": {
+    "react": ">= 18.x.x",
+    "react-dom": ">=18.x.x",
+    "@cogoport/front": ">=4.x.x",
+    "styled-jsx": ">= 5.x.x"
+  }
+}
