@@ -1,9 +1,6 @@
 import React from 'react'
 
-const SingleArrowIcon = () => (
-    <svg aria-hidden="true" data-prefix="far" data-icon="greater-than" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="svg-inline--fa fa-greater-than fa-w-10 fa-7x"><path fill="currentColor" d="M311.16 218.53L37.47 81.69c-7.9-3.95-17.52-.75-21.47 7.16L1.69 117.48c-3.95 7.9-.75 17.51 7.16 21.46L242.96 256 8.85 373.06c-7.9 3.95-11.11 13.56-7.16 21.46L16 423.15c3.95 7.9 13.56 11.11 21.47 7.16l273.68-136.84c5.42-2.71 8.84-8.25 8.84-14.31v-46.31c.01-6.07-3.41-11.61-8.83-14.32z" class=""></path></svg>
 
-)
 const Dropdown = () => (
     <svg width="1em" height="1em" viewBox="0 0 12 6" fill="none" xmlns="http://www.w3.org/2000/svg" class="core-ui-select-caret-icon"><path d="M1.052 1.76L5.35 5.441a1 1 0 001.302 0l4.296-3.683c.705-.604.278-1.759-.65-1.759H1.703c-.928 0-1.355 1.155-.65 1.76z" fill="#393F70"></path></svg>
 )
@@ -63,6 +60,24 @@ const DeleteIcon=()=>(
 </svg>
 
 )
+
+const SingleArrowIcon = (props) => (
+  <svg
+    aria-hidden="true"
+    data-prefix="far"
+    data-icon="greater-than"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 320 512"
+    className="single-arrow-to-right_svg__svg-inline--fa single-arrow-to-right_svg__fa-greater-than single-arrow-to-right_svg__fa-w-10 single-arrow-to-right_svg__fa-7x"
+    {...props}
+  >
+    <path
+      fill="currentColor"
+      d="M311.16 218.53 37.47 81.69c-7.9-3.95-17.52-.75-21.47 7.16L1.69 117.48c-3.95 7.9-.75 17.51 7.16 21.46L242.96 256 8.85 373.06c-7.9 3.95-11.11 13.56-7.16 21.46L16 423.15c3.95 7.9 13.56 11.11 21.47 7.16l273.68-136.84c5.42-2.71 8.84-8.25 8.84-14.31v-46.31c.01-6.07-3.41-11.61-8.83-14.32z"
+    />
+  </svg>
+);
+
 
 
 export {SingleArrowIcon, Dropdown, DoubleArrowIcon, DeleteIcon, CloseIcon  }
