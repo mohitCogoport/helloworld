@@ -85,7 +85,11 @@ const CollectionPopover = ({ previousValue = null, placeholder = 'Choose collect
 				data.map((collection) => (
 					<PopoverCard onClick={(e) => handleOnClickCard(e, collection)}>
 						{collection?.name}
-						<Button className="card-button" ghost onClick={(e) => handleArrowClick(e, collection)}><SingleArrowIcon /></Button>
+						{/* <Button className="card-button" ghost onClick={(e) => handleArrowClick(e, collection)}> */}
+						<SingleArrowIcon 
+						onClick={(e) => handleArrowClick(e, collection)}
+						/>
+						{/* </Button> */}
 					</PopoverCard>
 				)));
 		};

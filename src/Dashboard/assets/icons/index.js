@@ -8,9 +8,7 @@ const DoubleArrowIcon = () => (
     <svg aria-hidden="true" data-prefix="fal" data-icon="angle-double-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="svg-inline--fa fa-angle-double-right fa-w-10 fa-7x"><path fill="currentColor" d="M166.9 264.5l-117.8 116c-4.7 4.7-12.3 4.7-17 0l-7.1-7.1c-4.7-4.7-4.7-12.3 0-17L127.3 256 25.1 155.6c-4.7-4.7-4.7-12.3 0-17l7.1-7.1c4.7-4.7 12.3-4.7 17 0l117.8 116c4.6 4.7 4.6 12.3-.1 17zm128-17l-117.8-116c-4.7-4.7-12.3-4.7-17 0l-7.1 7.1c-4.7 4.7-4.7 12.3 0 17L255.3 256 153.1 356.4c-4.7 4.7-4.7 12.3 0 17l7.1 7.1c4.7 4.7 12.3 4.7 17 0l117.8-116c4.6-4.7 4.6-12.3-.1-17z" class=""></path></svg>
 
 )
-// const CloseIcon = () => (
-//     <svg width="1em" height="1em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="width: 20px; height: 20px;"><defs><path d="M12 10.586l5.293-5.293a1 1 0 011.414 1.414L13.414 12l5.293 5.293a1 1 0 01-1.414 1.414L12 13.414l-5.293 5.293a1 1 0 11-1.414-1.414L10.586 12 5.293 6.707a1 1 0 011.414-1.414L12 10.586z" id="cross-button_svg__a"></path></defs><g fill="none" fill-rule="evenodd"><mask id="cross-button_svg__b" fill="#fff"><use xlink:href="#cross-button_svg__a"></use></mask><use fill="#42526E" fill-rule="nonzero" xlink:href="#cross-button_svg__a"></use><g mask="url(#cross-button_svg__b)" fill="#525252" fill-rule="nonzero"><path d="M0 24h24V0H0z"></path></g></g></svg>
-// )
+
 
 const CloseIcon = (props) => (
   <svg
