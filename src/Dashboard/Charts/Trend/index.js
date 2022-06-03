@@ -1,5 +1,5 @@
 import { Flex, Text } from '@cogoport/front/components';
-import TrendBlackSvg from '../../assets/charts/trend-black.svg';
+import {TrendBlackSvg} from '../../assets/charts/index';
 import {IcUpSvg} from './icons/index';
 import {IcDownSvg} from './icons/index';
 
