@@ -6,9 +6,8 @@ import replace from 'rollup-plugin-replace'
 import json from '@rollup/plugin-json';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import postcss from 'rollup-plugin-postcss';
-// import {terser} from 'rollup-plugin-terser'
-import svgr from '@svgr/rollup'
-import React from 'react';
+
+const svgr = require('@svgr/rollup').default;
 
 const NODE_ENV = process.env.NODE_ENV || "development";
 const outputFile = NODE_ENV === "production" ? "./lib/prod.js" : "./lib/dev.js";
