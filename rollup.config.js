@@ -2,7 +2,7 @@ import resolve from 'rollup-plugin-node-resolve';
 import  babel  from  '@rollup/plugin-babel';
 import commonjs from 'rollup-plugin-commonjs';
 import replace from 'rollup-plugin-replace'
-import svg from 'rollup-plugin-svg'
+// import svg from 'rollup-plugin-svg'
 import json from '@rollup/plugin-json';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import postcss from 'rollup-plugin-postcss';
@@ -36,7 +36,7 @@ const x={
       }),
       resolve(),
       commonjs(),
-      svg(),
+      // svg(),
       svgr({
 				ref           : false,
 				runtimeConfig : false,
