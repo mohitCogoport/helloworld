@@ -25,11 +25,11 @@ const Trend = ({ data, themeType = 'purple_orange' }) => {
 			</Flex>
 
 			<Flex alignItems="center" style={{ gap: '4px' }}>
-				{
+				{/* {
 					isPercentageDownwards
 						? <IcDownSvg width={20} height={20} />
 						: <IcUpSvg width={20} height={20} />
-				}
+				} */}
 
 				<Text as="span" size={18} style={{ color: 'rgb(116, 131, 143)' }}>•</Text>
 
