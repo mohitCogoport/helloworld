@@ -27,16 +27,6 @@ const x={
       replace({
         "process.env.NODE_ENV": JSON.stringify(NODE_ENV)
       }),
-      babel({
-        exclude: "node_modules/**",
-        presets: [["@babel/preset-react", {
-      "runtime": "automatic"
-      }]],
-        babelHelpers: "bundled",
-      }),
-      resolve(),
-      commonjs(),
-      // svg(),
       svgr({
 				ref           : false,
 				runtimeConfig : false,
@@ -48,6 +38,16 @@ const x={
 				titleProp     : true,
 				svgoConfig    : { plugins: [{ removeTitle: false }] },
 			}),
+      babel({
+        exclude: "node_modules/**",
+        presets: [["@babel/preset-react", {
+      "runtime": "automatic"
+      }]],
+        babelHelpers: "bundled",
+      }),
+      resolve(),
+      commonjs(),
+      // svg(),
       json(),
       postcss(),
       peerDepsExternal(),
