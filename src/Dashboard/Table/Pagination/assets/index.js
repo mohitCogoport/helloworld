@@ -50,8 +50,8 @@ const ActiveLeftArrow = (props) => (
 
 const InactiveLeftArrow = (props) => (
   <svg
-    width={4}
-    height={8}
+    width={20}
+    height={20}
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     {...props}
@@ -70,8 +70,8 @@ const InactiveLeftArrow = (props) => (
 // )
 const InactiveRightArrow = (props) => (
   <svg
-    width={4}
-    height={8}
+    width={20}
+    height={20}
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     {...props}
