@@ -7,7 +7,7 @@ import json from '@rollup/plugin-json';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import postcss from 'rollup-plugin-postcss';
 // import {terser} from 'rollup-plugin-terser'
-// import svgr from '@svgr/rollup'
+import svgr from '@svgr/rollup'
 import React from 'react';
 
 const NODE_ENV = process.env.NODE_ENV || "development";
@@ -37,6 +37,17 @@ const x={
       resolve(),
       commonjs(),
       svg(),
+      svgr({
+				ref           : false,
+				runtimeConfig : false,
+				icon          : true,
+				dimensions    : true,
+				native        : false,
+				expandProps   : 'end',
+				svgo          : true,
+				titleProp     : true,
+				svgoConfig    : { plugins: [{ removeTitle: false }] },
+			}),
       json(),
       postcss(),
       peerDepsExternal(),
