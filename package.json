@@ -1,5 +1,5 @@
 {
-  "name": "helloworld",
+  "name": "@cogoport/dashboard",
   "version": "1.0.0",
   "description": "hello world roll up",
   "main": "lib/dev.js",
