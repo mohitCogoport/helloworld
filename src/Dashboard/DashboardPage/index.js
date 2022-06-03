@@ -114,7 +114,7 @@ const DashboardPage = ({id}) => {
 		<Flex direction="column">
 			<Container>
 				<Flex>
-					<Text bold>Dashboard Name</Text>
+					<Text bold>Dashboard Name UPDATE</Text>
 				</Flex>
 
 				<Flex alignItems="center" style={{ gap: '8px' }}>
