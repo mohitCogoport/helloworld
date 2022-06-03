@@ -3,10 +3,10 @@ import { Popover, Button, Flex } from '@cogoport/front/components';
 import { Container, PopoverContainer, PopoverCard, NavigationContainer, NavigationText, NoData, ValueText, CollectionValueButton, RemoveCollection } from './styles';
 import API from '../../../../utils/api';
 import { useRequest } from '../../../../hooks';
-import {SingleArrowIcon} from '../../../../assets/icons/index';
-import {Dropdown} from '../../../../assets/icons/index';
-import {DoubleArrowIcon} from '../../../../assets/icons/index';
-import {CloseIcon} from '../../../../assets/icons/index';
+import SingleArrowIcon from '../../../../assets/icons/single-arrow-to-right.svg';
+import Dropdown from '../../../../assets/icons/dropdown.svg';
+import DoubleArrowIcon from '../../../../assets/icons/double-arrow-right.svg';
+import CloseIcon from '../../../../assets/icons/close-button.svg';
 import Loading from '../../../../loading/popover-loading';
 
 const CollectionPopover = ({ previousValue = null, placeholder = 'Choose collection', onChange = () => {} }) => {

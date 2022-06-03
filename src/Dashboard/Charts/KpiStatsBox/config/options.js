@@ -1,9 +1,9 @@
 import { Flex, Text } from '@cogoport/front/components';
-import {StatsSvg} from '../../../assets/kpi-icons/index';
-import {MoneySvg} from '../../../assets/kpi-icons/index';
-import {UsersSvg} from '../../../assets/kpi-icons/index';
-import {ChartSvg} from '../../../assets/kpi-icons/index';
-import {ContainerSvg} from '../../../assets/kpi-icons/index';
+import StatsSvg from '../../../assets/kpi-icons/stats.svg';
+import MoneySvg from '../../../assets/kpi-icons/money.svg';
+import UsersSvg from '../../../assets/kpi-icons/users.svg';
+import ChartSvg from '../../../assets/kpi-icons/chart.svg';
+import ContainerSvg from '../../../assets/kpi-icons/container.svg';
 
 const options = [
 	{

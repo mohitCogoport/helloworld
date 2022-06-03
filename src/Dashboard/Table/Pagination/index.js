@@ -1,8 +1,8 @@
 import React from 'react';
 import { Flex, Text } from '@cogoport/front/components';
-import {ActiveRightArrow} from './assets/index';
-import {ActiveLeftArrow} from './assets/index';
-import {InactiveLeftArrow} from './assets/index';
+import ActiveRightArrow from './assets/active-right-arrow.svg';
+import ActiveLeftArrow from './assets/active-left-arrow.svg';
+import InactiveLeftArrow from './assets/inactive-left-arrow.svg';
 import InactiveRightArrow from './assets/inactive-right-arrow.svg';
 
 const Pagination = ({ showPagination = false, showPaginationOnLessData = false, paginationData, setParams, dataCount }) => {

@@ -1,7 +1,7 @@
 import { Flex, Text } from '@cogoport/front/components';
-import {TrendBlackSvg} from '../../assets/charts/index';
-import {IcUpSvg} from './icons/index';
-import {IcDownSvg} from './icons/index';
+import TrendBlackSvg from '../../assets/charts/trend-black.svg';
+import IcUpSvg from './ic-up.svg';
+import IcDownSvg from './ic-down.svg';
 
 const Trend = ({ data, themeType = 'purple_orange' }) => {
 	const newValue = +data?.chartData?.[1]?.value || 0;

@@ -2,7 +2,7 @@ import React from 'react';
 import { Flex } from '@cogoport/front/components';
 import getField from '../components';
 import { Row, Col } from '../StyleCorrectedGrid';
-import {DeleteIcon} from '../../../assets/icons/index';
+import DeleteIcon from '../../../assets/icons/ic-delete.svg';
 import {Label} from './styles'
 
 const Child = ({ controls, control, register, field, index, name, remove, error }) => (
