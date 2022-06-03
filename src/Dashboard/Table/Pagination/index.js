@@ -3,7 +3,7 @@ import { Flex, Text } from '@cogoport/front/components';
 import {ActiveRightArrow} from './assets/index';
 import {ActiveLeftArrow} from './assets/index';
 import {InactiveLeftArrow} from './assets/index';
-import {InactiveRightArrow} from './assets/index';
+import InactiveRightArrow from './assets/inactive-right-arrow.svg';
 
 const Pagination = ({ showPagination = false, showPaginationOnLessData = false, paginationData, setParams, dataCount }) => {
 	if (!showPagination || (!showPaginationOnLessData && paginationData?.total_count <= paginationData?.page_limit)) return null;
