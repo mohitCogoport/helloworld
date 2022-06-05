@@ -49,40 +49,45 @@ const ViewEditDashboardComponent = ({
 			<Flex direction="column" style={{ paddingBottom: isEditable ? '88px' : '8px' }}>
 				<Container>
 					<MainSection>
-						{/* grid layout for showing all the widget in the dashboard */}
-						<ResponsiveGridLayout
-							className="layout"
-							rowHeight={30}
-							layouts={dashboardLayout}
-							cols={{ lg: 12, md: 10, sm: 6, xs: 4, xxs: 2 }}
-							onLayoutChange={onLayoutChange}
-							isDroppable
-							measureBeforeMount={false}
-							isDraggable={isEditable}
-							isResizable={isEditable}
-							isBounded
-						>
-							{
-								dashboardLayout?.lg?.map((layout) => (
-									<div key={layout?.i}>
-										<GridItem
-											layout={layout}
-											isEditable={isEditable}
-											widgets={widgets}
-											removeChart={removeChart}
-											layout_props={layout_props}
-											themeType={themeType}
-											queryVariableValues={queryVariableValues}
-										/>
-									</div>
-								))
-							}
-						</ResponsiveGridLayout>
+
+						{widgets.length <= 0 && <EmptyState />}
+
+						{widgets.length > 0 && (
+							<ResponsiveGridLayout
+								className="layout"
+								rowHeight={30}
+								layouts={dashboardLayout}
+								breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
+								cols={{ lg: 12, md: 10, sm: 6, xs: 4, xxs: 2 }}
+								onLayoutChange={onLayoutChange}
+								isDroppable
+								measureBeforeMount={false}
+								isDraggable={isEditable}
+								isResizable={isEditable}
+								isBounded
+							>
+
+								{
+									dashboardLayout?.lg?.map((layout) => (
+										<div key={layout?.i}>
+											<GridItem
+												layout={layout}
+												isEditable={isEditable}
+												widgets={widgets}
+												removeChart={removeChart}
+												layout_props={layout_props}
+												themeType={themeType}
+												queryVariableValues={queryVariableValues}
+											/>
+										</div>
+									))
+								}
+							</ResponsiveGridLayout>
+						) }
 					</MainSection>
 				</Container>
 			</Flex>
 
-			{/* for removing a widgets from a dashboard */}
 			<RemoveWidgetModal
 				showRemoveWidgetModal={showRemoveWidgetModal}
 				setShowRemoveWidgetModal={setShowRemoveWidgetModal}

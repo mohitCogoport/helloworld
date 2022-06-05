@@ -36,14 +36,13 @@ const GridItem = ({
 		<GridContainer ref={layoutRef} isEditable={isEditable}>
 
 			{isEditable && widgets.length > 1 && (
-				<Flex justifyContent="flex-end" padding="4px">
-					<Button
+				<Flex justifyContent="flex-end" padding="4px" marginBottom="30px">
+					<CloseButton
 						ghost
-						size="sm"
 						onClick={onClickRemoveChart}
 					>
 						x
-					</Button>
+					</CloseButton>
 				</Flex>
 			)}
 			<WidgetContainer>

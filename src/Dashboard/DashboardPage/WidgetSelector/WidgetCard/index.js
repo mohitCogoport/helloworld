@@ -53,7 +53,7 @@ const WidgetCard = ({ widget_data, selectedWidgets, setSelectedWidgets }) => {
 					onOuterClick={() => setShowModal(false)}
 					width={600}
 				>
-					<VariableFilters
+					<EditorVariableFilters
 						setQueryVariableValues={setQueryVariableValues}
 						queryVariableValues={queryVariableValues}
 						queryVariables={widget_data?.query_variables}

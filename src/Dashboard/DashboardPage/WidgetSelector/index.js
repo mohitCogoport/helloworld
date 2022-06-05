@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Flex,  Text, Checkbox } from '@cogoport/front/components';
-import { Button } from '@cogoport/front/components/admin';
+import { Button } from '../Button';
 import { startCase } from '@cogoport/front/utils';
 import { useRequest } from '../../hooks';
 import API from '../../utils/api';
@@ -169,7 +169,7 @@ const WidgetSelector = ({
 							showPagination={false}
 						/>
 					)
-					: (
+					:					(
 						<TableBodyContainer>
 							<Pagination
 								showPagination

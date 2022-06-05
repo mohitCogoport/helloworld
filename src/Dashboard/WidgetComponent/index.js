@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Flex } from '@cogoport/front/components';
 import { useRequest } from '../hooks';
 import { NoRecordContainer } from './styles';
-// import {ReactComponent as NoRecordsFound} from '../assets/icons/no-records.svg';
+import  NoRecordsFound from '../assets/icons/no-records.svg';
 import WidgetToRender from './WidgetToRender';
 import WidgetLoading from './WidgetLoading';
 import defaultPaginationParams from '../utils/defaultPaginationParams';
@@ -46,7 +46,7 @@ const WidgetComponent = ({
 			return (
 				<Flex style={{ minHeight: '30vh' }}>
 					<NoRecordContainer>
-						{/* <NoRecordsFound style={{ width: '100%', height: '100%' }} /> */}
+						<NoRecordsFound style={{ width: '100%', height: '100%' }} />
 					</NoRecordContainer>
 				</Flex>
 			);

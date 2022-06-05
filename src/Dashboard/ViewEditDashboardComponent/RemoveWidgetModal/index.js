@@ -1,6 +1,6 @@
 import React from 'react';
 import { Flex, Modal, Text } from '@cogoport/front/components';
-import { Button } from '@cogoport/front/components/admin';
+import { Button } from '../../DashboardPage/Button';
 
 const RemoveWidgetModal = ({
 	showRemoveWidgetModal,

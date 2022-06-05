@@ -25,7 +25,7 @@ const UpdateDashboard = ({
 	reloadOnUpdate = false,
 	setReloadOnUpdate = () => {},
 }) => {
-	// const router = useRouter();
+	const router = useRouter();
 
 	const [errors, setErrors] = useState({});
 	const [loading, setLoading] = useState(false);
@@ -104,7 +104,6 @@ const UpdateDashboard = ({
 		if (dashboardData) (payload.id = dashboardData.id);
 
 		try {
-			console.log('payload : ', payload);
 			const response = await saveDashboardAPI.trigger({ data: payload });
 			const { hasError } = response;
 
@@ -118,10 +117,9 @@ const UpdateDashboard = ({
 				if (dashboardData) {
 					setDashboardMode('view');
 					setReloadOnUpdate(true);
-				} 
-				// else {
-				// 	router.push({ pathname: ROUTER_PATHNAME.DASHBOARDS });
-				// }
+				} else {
+					router.push({ pathname: ROUTER_PATHNAME.DASHBOARDS });
+				}
 			}
 		} catch (error) {
 			const message = ({ ...error })?.data?.message || 'Something went wrong...';
@@ -135,16 +133,7 @@ const UpdateDashboard = ({
 
 	return (
 		<>
-
-			<Flex flex={1}>
-				<ThemeSelector themeType={themeType} setThemeType={setThemeType} />
-				<FormContainer>
-					<Text bold size={12} marginBottom={8}>Dashboard Details</Text>
-					<Form controls={controls} fields={fields} errors={errors} />
-				</FormContainer>
-			</Flex>
-
-			<SaveDashboardButton
+			<SaveDashboard
 				dashboardMode={dashboardMode}
 				isDashboardEdited={isDashboardEdited}
 				handleClickClose={handleClickClose}
@@ -154,6 +143,14 @@ const UpdateDashboard = ({
 				loading={loading}
 				dashboardData={dashboardData}
 			/>
+			<Flex flex={1}>
+				<ThemeSelector themeType={themeType} setThemeType={setThemeType} />
+				<FormContainer>
+					<Title bold size={12} marginBottom={8}>Dashboard Details</Title>
+					<Form controls={controls} fields={fields} errors={errors} />
+				</FormContainer>
+			</Flex>
+
 			<CancelUpdateDashboardConfirmationModal
 				showCancelUpdateConfirmationModal={showCancelUpdateConfirmationModal}
 				setShowCancelUpdateConfirmationModal={setShowCancelUpdateConfirmationModal}

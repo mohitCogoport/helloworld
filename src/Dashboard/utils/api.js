@@ -59,6 +59,11 @@ const API = {
 		apiScope  : SCOPE_ANALYTICS,
 		apiName   : '/get_analytics_query_result_set',
 	},
+	BULK_UPDATE_ANALYTICS_WIDGETS: {
+		apiMethod : 'post',
+		apiScope  : SCOPE_ANALYTICS,
+		apiName   : '/bulk_update_analytics_widgets',
+	},
 	CREATE_ANALYTICS_WIDGET: {
 		apiMethod : 'post',
 		apiScope  : SCOPE_ANALYTICS,

@@ -1,12 +1,12 @@
 const controls = [
 	{
 		name        : 'name',
-		label       : 'Dashboard Name',
+		label       : 'Dashboard name',
 		placeholder : 'Enter here...',
 		type        : 'text',
 		watch       : false,
 		span        : 4,
-		rules       : { required: 'Field is required' },
+		rules       : { required: 'Name is required' },
 	},
 	{
 		name        : 'description',
@@ -15,7 +15,7 @@ const controls = [
 		type        : 'text',
 		watch       : false,
 		span        : 4,
-		rules       : { required: 'Field is required' },
+		rules       : { required: 'Description is required' },
 	},
 	{
 		name           : 'collection_id',
@@ -30,6 +30,8 @@ const controls = [
 		valueKey       : 'id',
 		labelKey       : 'name',
 		placeholder    : 'Search...',
+		rules       : { required: 'Collection is required' },
+
 	},
 ];
 

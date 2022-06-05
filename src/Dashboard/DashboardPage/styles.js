@@ -6,3 +6,7 @@ export const Container = styled.div`
     padding: 20px 0;
     justify-content: space-between;
 `;
+
+export const DashboardContainer = styled.div`
+
+`;

@@ -18,7 +18,6 @@ const WidgetToRender = ({
 	showPagination,
 	paginationData,
 	setParams,
-	gridItemHeight,
 }) => {
 	const TYPE_MAPPING = {
 		funnel        : { Widget: FunnelWidget },

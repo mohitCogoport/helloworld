@@ -7,14 +7,14 @@ import { SaveDashboardButtonContainer } from './styles';
 const SaveDashboardButton = ({
 	dashboardMode = 'view',
 	isDashboardEdited = 'false',
-	handleClickClose = () => {},
+	// handleClickClose = () => {},
 	handleSubmit = () => {},
 	handleFormSubmit = () => {},
 	onError = () => {},
 	loading = 'false',
 }) => (
 	<SaveDashboardButtonContainer>
-		<Flex>
+		{/* <Flex>
 			{
 				dashboardMode === 'edit'
 					? (
@@ -25,10 +25,10 @@ const SaveDashboardButton = ({
 					: null
 			}
 
-		</Flex>
+		</Flex> */}
 
 		<Flex style={{ gap: '8px' }}>
-			{
+			{/* {
 				dashboardMode === 'edit'
 					? (
 						<Button
@@ -39,7 +39,7 @@ const SaveDashboardButton = ({
 						</Button>
 					)
 					: null
-			}
+			} */}
 
 			<Button
 				className="primary sm"

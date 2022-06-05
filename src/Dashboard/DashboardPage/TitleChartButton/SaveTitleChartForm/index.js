@@ -14,7 +14,7 @@ const controls = [
 		type        : 'text',
 		watch       : false,
 		span        : 12,
-		rules       : { required: 'Field is required' },
+		rules       : { required: 'Title is required' },
 	},
 	{
 		name        : 'description',
@@ -23,7 +23,8 @@ const controls = [
 		type        : 'text',
 		watch       : false,
 		span        : 12,
-		rules       : { required: 'Field is required' },
+		rules       : { required: 'Description is required' },
+
 	},
 	{
 		name           : 'collection_id',
@@ -41,6 +42,8 @@ const controls = [
 		placeholder    : 'Choose collection...',
 		multiple       : false,
 		previousValue  : null,
+		rules          : { required: 'Collection is required' },
+
 	},
 ];
 
@@ -99,8 +102,8 @@ const SaveTitleChartForm = ({
 					position : {
 						x    : 0,
 						y    : 0,
-						w    : 9,
-						h    : 1,
+						w    : 6,
+						h    : 8,
 						minW : 6,
 						minH : 8,
 						i    : response?.data?.id,

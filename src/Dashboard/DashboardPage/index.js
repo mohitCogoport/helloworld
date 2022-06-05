@@ -16,15 +16,34 @@ import { useRequest } from '../hooks';
 import "../../../node_modules/react-grid-layout/css/styles.css"
 import "../../../node_modules/react-resizable/css/styles.css"
 
-const DashboardPage = ({id}) => {
+const DashboardPage = () => {
 
 	const [dashboardMode, setDashboardMode] = useState('view');
 	const [themeType, setThemeType] = useState('');
 	const [widgets, setWidgets] = useState([]);
 	const [dashboardLayout, setDashboardLayout] = useState({ lg: [] });
 	const [showImport, setShowImport] = useState(false);
-	const [queryVariableValues, setQueryVariableValues] = useState({});
+	const [dashboardQueryVariableValues, setDashboardQueryVariableValues] = useState({});
 	const [isDashboardEdited, setIsDashboardEdited] = useState(false);
+
+	const breadCrumbs = [
+		{
+			key   : 'Collections',
+			title : 'Collections',
+			href  : '/collections',
+			as    : '',
+		},
+		{
+			key   : 'Dashboard page',
+			title : `${startCase(name)}`,
+		},
+	];
+
+	const handlebreadCrumbClick = (details) => {
+		if (details.href) {
+			router.push(details.href);
+		}
+	};
 
 	const params = { id };
 	const { apiMethod, apiScope, apiName } = API.GET_ANALYTICS_DASHBOARD;
@@ -40,15 +59,10 @@ const DashboardPage = ({id}) => {
 
 	useEffect(() => {
 		if (!reloadOnUpdate) return;
-		getDashboardAPI.trigger({
-			
-			
-		});
+		getDashboardAPI.trigger();
 		setIsDashboardEdited(false);
 	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [reloadOnUpdate]);
-
-	console.log('api data ', api_data);
 
 	useEffect(() => {
 		if (widgetsMappingData.length === 0) return;
@@ -95,16 +109,22 @@ const DashboardPage = ({id}) => {
 		setIsDashboardEdited(false);
 	};
 
+	// const handleBackButton = () => {
+	// 	router.back();
+	// };
 
+	let query_variables = [];
 
-	const query_variables = [];
 	widgetsMappingData?.forEach((item) => {
 		const itemQv = item?.query_variables || [];
 		if (itemQv?.length > 0) {
 			itemQv.forEach((qv) => {
-				const isNotAlreadyAdded = query_variables?.filter((x) => x?.name === qv?.name).length === 0;
-				if (isNotAlreadyAdded) {
-					query_variables.push(qv);
+				const isNotAlreadyAdded = query_variables?.filter((x) => (x?.name === qv?.name && x?.type === qv.type));
+				if (isNotAlreadyAdded.length === 0) {
+					query_variables = [...query_variables, { ...qv, widgetId: [item.id] }];
+				} else {
+					const index = query_variables.indexOf(isNotAlreadyAdded[0]);
+					query_variables[index].widgetId = [...query_variables[index].widgetId, item.id];
 				}
 			});
 		}
@@ -114,7 +134,7 @@ const DashboardPage = ({id}) => {
 		<Flex direction="column">
 			<Container>
 				<Flex>
-					<Text bold>Dashboard Named</Text>
+					<Text bold>{`${startCase(name)}`}</Text>
 				</Flex>
 
 				<Flex alignItems="center" style={{ gap: '8px' }}>
@@ -127,14 +147,18 @@ const DashboardPage = ({id}) => {
 					/>
 
 					<Button
-						className="secondary sm"
+						className="primary sm"
 						disabled={loading}
 						onClick={() => handleRefresh()}
+						style={{ display: dashboardMode === 'edit' && 'none' }}
 					>
-						Refresh
+						{dashboardMode === 'view' ? 'Refresh' : 'Update Dashboard'}
 					</Button>
 				</Flex>
 			</Container>
+			<Flex marginBottom="16px">
+				<BreadCrumbs onClick={handlebreadCrumbClick} breadCrumbs={breadCrumbs} />
+			</Flex>
 
 			<CancelUpdateDashboardConfirmationModal
 				showCancelUpdateConfirmationModal={showCancelUpdateConfirmationModal}
@@ -162,8 +186,6 @@ const DashboardPage = ({id}) => {
 
 			{dashboardMode === 'edit' && (
 				<Flex justifyContent="space-between" margin="16px 0">
-
-					{/* dashboard configuration like variable,, reset and apply button, create and add widgets */}
 					<Text>Configure Dashboard</Text>
 
 					<Flex style={{ gap: '8px' }}>
@@ -185,12 +207,14 @@ const DashboardPage = ({id}) => {
 					<DashboardLoading />
 				</Flex>
 			) : (
-				<>
-
+				<DashboardContainer>
 					<VariableFilters
 						queryVariables={query_variables}
-						queryVariableValues={queryVariableValues}
-						setQueryVariableValues={setQueryVariableValues}
+						queryVariableValues={dashboardQueryVariableValues}
+						setQueryVariableValues={setDashboardQueryVariableValues}
+						widgets={widgets}
+						api_data={api_data}
+						dashboard_id={dashboard_id}
 					/>
 
 					<ViewEditDashboardComponent
@@ -200,9 +224,9 @@ const DashboardPage = ({id}) => {
 						dashboardMode={dashboardMode}
 						dashboardLayout={dashboardLayout}
 						setDashboardLayout={setDashboardLayout}
-						queryVariableValues={queryVariableValues}
+						queryVariableValues={dashboardQueryVariableValues}
 					/>
-				</>
+				</DashboardContainer>
 			) }
 
 			{showImport && (
