@@ -1,6 +1,6 @@
 {
   "name": "@cogoport/dashboard",
-  "version": "0.0.1",
+  "version": "0.0.16",
   "description": "Embed Cogo-analytics dashboard in cogo-partner project",
   "main": "lib/dev.js",
   "scripts": {

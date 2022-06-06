@@ -1,8 +1,8 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { Button, Flex } from '@cogoport/front/components';
+import { Flex } from '@cogoport/front/components';
 import WidgetComponent from '../../WidgetComponent';
 import { GridContainer } from '../styles';
-import { WidgetContainer } from './styles';
+import { WidgetContainer,CloseButton } from './styles';
 
 
 const GridItem = ({

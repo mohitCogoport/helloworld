@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Flex,  Text, Checkbox } from '@cogoport/front/components';
-import { Button } from '../Button';
+import  Button  from '../Button';
 import { startCase } from '@cogoport/front/utils';
 import { useRequest } from '../../hooks';
 import API from '../../utils/api';

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Modal  from '@cogoport/front/components/admin/Modal';
 import  Toggle  from '@cogoport/front/components/admin/Toggle';
 import { Flex, Text } from '@cogoport/front/components';
-import { Container } from './styles';
+import { Container,DashboardContainer,DashboardHeader } from './styles';
 import CancelUpdateDashboardConfirmationModal from './UpdateDashboard/Components/CancelUpdateDashboardConfirmationModal';
 import ViewEditDashboardComponent from '../ViewEditDashboardComponent';
 import UpdateDashboard from './UpdateDashboard';
@@ -16,7 +16,7 @@ import { useRequest } from '../hooks';
 import "../../../node_modules/react-grid-layout/css/styles.css"
 import "../../../node_modules/react-resizable/css/styles.css"
 
-const DashboardPage = () => {
+const DashboardPage = ({dashboard_id}) => {
 
 	const [dashboardMode, setDashboardMode] = useState('view');
 	const [themeType, setThemeType] = useState('');
@@ -26,26 +26,9 @@ const DashboardPage = () => {
 	const [dashboardQueryVariableValues, setDashboardQueryVariableValues] = useState({});
 	const [isDashboardEdited, setIsDashboardEdited] = useState(false);
 
-	const breadCrumbs = [
-		{
-			key   : 'Collections',
-			title : 'Collections',
-			href  : '/collections',
-			as    : '',
-		},
-		{
-			key   : 'Dashboard page',
-			title : `${startCase(name)}`,
-		},
-	];
+	
 
-	const handlebreadCrumbClick = (details) => {
-		if (details.href) {
-			router.push(details.href);
-		}
-	};
-
-	const params = { id };
+	const params = { id:dashboard_id };
 	const { apiMethod, apiScope, apiName } = API.GET_ANALYTICS_DASHBOARD;
 	const getDashboardAPI = useRequest(apiMethod, false, apiScope)(apiName, { params });
 	const loading = getDashboardAPI?.loading;
@@ -109,10 +92,6 @@ const DashboardPage = () => {
 		setIsDashboardEdited(false);
 	};
 
-	// const handleBackButton = () => {
-	// 	router.back();
-	// };
-
 	let query_variables = [];
 
 	widgetsMappingData?.forEach((item) => {
@@ -134,9 +113,8 @@ const DashboardPage = () => {
 		<Flex direction="column">
 			<Container>
 				<Flex>
-					<Text bold>{`${startCase(name)}`}</Text>
+					<DashboardHeader bold>{dashboard_data?.name || 'Untitled'}</DashboardHeader>
 				</Flex>
-
 				<Flex alignItems="center" style={{ gap: '8px' }}>
 					<Toggle
 						offLabel={{ label: 'View', value: 'view' }}
@@ -156,10 +134,6 @@ const DashboardPage = () => {
 					</Button>
 				</Flex>
 			</Container>
-			<Flex marginBottom="16px">
-				<BreadCrumbs onClick={handlebreadCrumbClick} breadCrumbs={breadCrumbs} />
-			</Flex>
-
 			<CancelUpdateDashboardConfirmationModal
 				showCancelUpdateConfirmationModal={showCancelUpdateConfirmationModal}
 				setShowCancelUpdateConfirmationModal={setShowCancelUpdateConfirmationModal}

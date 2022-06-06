@@ -1,16 +1,14 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { Flex, Text, toast } from '@cogoport/front/components';
+import { Flex, toast } from '@cogoport/front/components';
 import { useFormCogo } from '@cogoport/front/hooks';
-// import { useRouter } from 'next/router';
 import CancelUpdateDashboardConfirmationModal from './Components/CancelUpdateDashboardConfirmationModal';
 import Form from '../Form';
 import ThemeSelector from '../ThemeSelector';
 import   useRequest   from '../../hooks/useRequest';
 import getDashboardBasicControls from './get-dashboard-basic-controls';
-import { FormContainer } from './styles';
-// import ROUTER_PATHNAME from '../../utils/router-pathname';
+import { FormContainer,Title } from './styles';
 import API from '../../utils/api';
-import SaveDashboardButton from './Components/SaveDashboard';
+import SaveDashboard from "./Components/SaveDashboard"
 
 const UpdateDashboard = ({
 	themeType = '',
@@ -25,7 +23,7 @@ const UpdateDashboard = ({
 	reloadOnUpdate = false,
 	setReloadOnUpdate = () => {},
 }) => {
-	const router = useRouter();
+	// const router = useRouter();
 
 	const [errors, setErrors] = useState({});
 	const [loading, setLoading] = useState(false);
@@ -117,9 +115,10 @@ const UpdateDashboard = ({
 				if (dashboardData) {
 					setDashboardMode('view');
 					setReloadOnUpdate(true);
-				} else {
-					router.push({ pathname: ROUTER_PATHNAME.DASHBOARDS });
-				}
+				} 
+				// else {
+				// 	router.push({ pathname: ROUTER_PATHNAME.DASHBOARDS });
+				// }
 			}
 		} catch (error) {
 			const message = ({ ...error })?.data?.message || 'Something went wrong...';

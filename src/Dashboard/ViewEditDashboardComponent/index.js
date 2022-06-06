@@ -4,6 +4,7 @@ import { Responsive, WidthProvider } from 'react-grid-layout';
 import { Container, MainSection } from './styles';
 import GridItem from './GridItem';
 import RemoveWidgetModal from './RemoveWidgetModal';
+import EmptyState from "../EmptyState"
 
 const ResponsiveGridLayout = WidthProvider(Responsive);
 
